@@ -1,6 +1,6 @@
 # sql-digital-media-trends
 
-To apply my SQL skills in a realistic setting, I plan to work with a mock database like the Chinook dataset, which mirrors a digital media store. To simulate a real-world scenario, I will pose as an analyst being asked questions from a CEO. I’ll create and interpret query results into understandable insights and use tools like Tableau or Power BI for data visualization. This end-to-end process will mimic a real-world scenario, providing practical experience through a project that goes beyond online exercises.
+To apply my SQL skills in a realistic setting, I plan to work with a mock database like the Chinook dataset, which mirrors a digital media store. To simulate a real-world scenario, I will pose as an analyst being asked questions from a CEO. I’ll create and interpret query results into understandable insights and use tools like Tableau or Power BI for data visualization. 
 
 
 The Chinook data model represents a digital media store, including tables for artists, albums, media tracks, invoices and customers.
@@ -25,7 +25,6 @@ Extra:
 - Are there any tracks or albums that have not been purchased at all?
 - Which artists generate the most revenue?
 - Who are the top 5 customers in terms of total spending?
-- What can you tell me about our customers that are spending the most on [genre], [artist], etc.?
 - What is the average transaction value?
 
 
@@ -34,6 +33,12 @@ How can I explain these answers to him?
 exercise solidifies fundaments like: JOINS, aggregations, sorting/filtering dates, etc.
 
 Tableau visualizations: 
+
+Lessons learned:
+- End to end querying to visualization process. This end-to-end process will mimic a real-world scenario, providing practical experience through a project that goes beyond online exercises.
+- Readable and formatting conventions
+- Explaning queried data 
+- More research on formatting and conventions for consistency
 
 Next steps: practice more complex syntax like windows functions (LAG, LEAD, RANK).
 Add more questions and visualizations
