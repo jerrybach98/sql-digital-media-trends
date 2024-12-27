@@ -38,6 +38,7 @@ Lessons learned:
 - End to end querying to visualization process. This end-to-end process will mimic a real-world scenario, providing practical experience through a project that goes beyond online exercises.
 - Readable and formatting conventions
 - Explaning queried data 
+- Good review
 - More research on formatting and conventions for consistency
 
 Next steps: practice more complex syntax like windows functions (LAG, LEAD, RANK).
