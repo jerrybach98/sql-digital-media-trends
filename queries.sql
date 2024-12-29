@@ -12,7 +12,7 @@ FROM Track
 JOIN InvoiceLine ON InvoiceLine.TrackId = Track.TrackId
 GROUP BY Track.Name, Track.TrackId
 ORDER BY revenue DESC LIMIT 10; 
--- The top selling tracks are: Hot Girl, Walkabout, Gay Witch Hunt, How to Stop an Exploding Man, Pilot, Phyllis's Wedding, The Fix, The Woman King, I Do, and The Glass Ballerina. This shows how many tracks were sold as well as their revenue. 
+-- The top selling tracks by revenue are: Hot Girl, Walkabout, Gay Witch Hunt, How to Stop an Exploding Man, Pilot, Phyllis's Wedding, The Fix, The Woman King, I Do, and The Glass Ballerina. This shows how many tracks were sold as well as their revenue. 
 
 SELECT Album.Title AS album_title, SUM(InvoiceLine.Quantity*InvoiceLine.UnitPrice) AS album_revenue 
 FROM Track
@@ -20,20 +20,37 @@ JOIN Album ON Album.AlbumId = Track.AlbumId
 JOIN InvoiceLine ON InvoiceLine.TrackId = Track.TrackId
 GROUP BY Album.Title
 ORDER BY album_revenue DESC LIMIT 10;
--- 
+-- The top selling albums by revenue are: Battlestar Galactica (Classic), Season 1, Minha Historia, The Office, Season 3, Heroes, Season 1, Lost, Season 2, Greatest Hits, Unplugged, Battlestar Galactica, Season 3, Lost, Season 3, Acústico. As albums are not sold individually, I grouped the revenue from tracks sold into their respective albums. 
 
 -- Music and Artist Insights
 -- 3. What genres of music are most popular?
+SELECT Genre.Name, SUM(InvoiceLine.Quantity) AS tracks_sold
+FROM Track
+JOIN Genre ON Genre.GenreId = Track.GenreId
+JOIN InvoiceLine ON InvoiceLine.TrackId = Track.TrackId
+GROUP BY Genre.Name
+ORDER BY tracks_sold DESC LIMIT 5;
+-- Out of 25 genres, our most popular five are Rock, Latin, Metal, Alternative & Punk, and Jazz. Note: These are based on tracks sold and not revenue generated. 
 
 -- Geographic Insights
--- 4. Which cities or countries generate the most revenue?
+-- 4. Which cities or countries generate the most revenue? I want to run a promotion in popular areas. 
+SELECT BillingCountry, SUM(Total) AS country_revenue
+FROM Invoice
+GROUP BY BillingCountry
+ORDER BY country_revenue DESC;
+
+SELECT BillingCountry, BillingState, SUM(Total) AS state_revenue
+FROM Invoice
+GROUP BY BillingCountry, BillingState
+ORDER BY BillingCountry, state_revenue DESC;
+-- The countries that generate the most revenue are: USA, Canada, France, Brazil, and Germany. Although we are a bit limited as not every country categorizes geographically by states. In our top two countries, USA and Canada, CA/TX/UT generate the most revenue in the US, while ON/QC/BC generate the most revenue in Canada. These would be good states to run promotions in. 
+
 
 -- Transaction and Seasonal Trends
 -- 5. Are there specific times of the year when sales are higher or lower?
--- 6. Which artist are popular by week, month, year?
 
 -- Customer Insights:
--- 7. What can you tell me about our customers that are spending the most on [genre], [artist], etc.?
+-- 6. What can you tell me about our customers that are spending the most on [genre], [artist], etc.?
 
 -- Time Based Analysis
--- 8. Advanced question(?)
+-- 7. Advanced question(?) Find intermediate level query to dabble in. 

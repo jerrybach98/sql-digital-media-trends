@@ -40,6 +40,7 @@ Lessons learned:
 - Explaning queried data 
 - Good review
 - More research on formatting and conventions for consistency
+- Subqueries are basically just querying on a generated table from a query
 
 Next steps: practice more complex syntax like windows functions (LAG, LEAD, RANK).
 Add more questions and visualizations
