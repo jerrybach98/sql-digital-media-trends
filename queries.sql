@@ -7,42 +7,56 @@ FROM Invoice;
 -- 2. What are the top 10 best-selling tracks and albums by revenue?
 -- Select Track and InvoiceLine, line join on Trackid, group by track, sum the revenue by track, sort them, show only the first 10 
 
-SELECT Track.Name, Track.TrackId, Sum(InvoiceLine.Quantity) AS total_sold, SUM(InvoiceLine.Quantity*Track.UnitPrice) AS revenue 
+SELECT Track.Name,
+    Track.TrackId,
+    Sum(InvoiceLine.Quantity) AS total_sold,
+    SUM(InvoiceLine.Quantity * Track.UnitPrice) AS revenue
 FROM Track
-JOIN InvoiceLine ON InvoiceLine.TrackId = Track.TrackId
-GROUP BY Track.Name, Track.TrackId
-ORDER BY revenue DESC LIMIT 10; 
+    JOIN InvoiceLine ON InvoiceLine.TrackId = Track.TrackId
+GROUP BY Track.Name,
+    Track.TrackId
+ORDER BY revenue DESC
+LIMIT 10;
 -- The top selling tracks by revenue are: Hot Girl, Walkabout, Gay Witch Hunt, How to Stop an Exploding Man, Pilot, Phyllis's Wedding, The Fix, The Woman King, I Do, and The Glass Ballerina. This shows how many tracks were sold as well as their revenue. 
 
-SELECT Album.Title AS album_title, SUM(InvoiceLine.Quantity*InvoiceLine.UnitPrice) AS album_revenue 
+SELECT Album.Title AS album_title,
+    SUM(InvoiceLine.Quantity * InvoiceLine.UnitPrice) AS album_revenue
 FROM Track
-JOIN Album ON Album.AlbumId = Track.AlbumId
-JOIN InvoiceLine ON InvoiceLine.TrackId = Track.TrackId
+    JOIN Album ON Album.AlbumId = Track.AlbumId
+    JOIN InvoiceLine ON InvoiceLine.TrackId = Track.TrackId
 GROUP BY Album.Title
-ORDER BY album_revenue DESC LIMIT 10;
+ORDER BY album_revenue DESC
+LIMIT 10;
 -- The top selling albums by revenue are: Battlestar Galactica (Classic), Season 1, Minha Historia, The Office, Season 3, Heroes, Season 1, Lost, Season 2, Greatest Hits, Unplugged, Battlestar Galactica, Season 3, Lost, Season 3, Acústico. As albums are not sold individually, I grouped the revenue from tracks sold into their respective albums. 
 
 -- Music and Artist Insights
 -- 3. What genres of music are most popular?
-SELECT Genre.Name, SUM(InvoiceLine.Quantity) AS tracks_sold
+SELECT Genre.Name,
+    SUM(InvoiceLine.Quantity) AS tracks_sold
 FROM Track
-JOIN Genre ON Genre.GenreId = Track.GenreId
-JOIN InvoiceLine ON InvoiceLine.TrackId = Track.TrackId
+    JOIN Genre ON Genre.GenreId = Track.GenreId
+    JOIN InvoiceLine ON InvoiceLine.TrackId = Track.TrackId
 GROUP BY Genre.Name
-ORDER BY tracks_sold DESC LIMIT 5;
+ORDER BY tracks_sold DESC
+LIMIT 5;
 -- Out of 25 genres, our most popular five are Rock, Latin, Metal, Alternative & Punk, and Jazz. Note: These are based on tracks sold and not revenue generated. 
 
 -- Geographic Insights
 -- 4. Which cities or countries generate the most revenue? I want to run a promotion in popular areas. 
-SELECT BillingCountry, SUM(Total) AS country_revenue
+SELECT BillingCountry,
+    SUM(Total) AS country_revenue
 FROM Invoice
 GROUP BY BillingCountry
 ORDER BY country_revenue DESC;
 
-SELECT BillingCountry, BillingState, SUM(Total) AS state_revenue
+SELECT BillingCountry,
+    BillingState,
+    SUM(Total) AS state_revenue
 FROM Invoice
-GROUP BY BillingCountry, BillingState
-ORDER BY BillingCountry, state_revenue DESC;
+GROUP BY BillingCountry,
+    BillingState
+ORDER BY BillingCountry,
+    state_revenue DESC;
 -- The countries that generate the most revenue are: USA, Canada, France, Brazil, and Germany. Although we are a bit limited as not every country categorizes geographically by states. In our top two countries, USA and Canada, CA/TX/UT generate the most revenue in the US, while ON/QC/BC generate the most revenue in Canada. These would be good states to run promotions in. 
 
 
