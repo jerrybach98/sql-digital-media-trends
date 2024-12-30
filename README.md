@@ -41,6 +41,8 @@ Lessons learned:
 - Good review
 - More research on formatting and conventions for consistency
 - Subqueries are basically just querying on a generated table from a query
+- I need more practice with window functions as I couldn't produce the results I wanted without creating multiple queries
+- Differences in SQL databased such as function availability 
 
 Next steps: practice more complex syntax like windows functions (LAG, LEAD, RANK).
 Add more questions and visualizations
