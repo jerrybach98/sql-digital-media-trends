@@ -1,4 +1,4 @@
-# sql-digital-media-trends
+# sql-digital-media-trends (Work in progress)
 
 To apply my SQL skills in a realistic setting, I plan to work with a mock database like the Chinook dataset, which mirrors a digital media store. To simulate a real-world scenario, I will pose as an analyst being asked questions from a CEO. I’ll create and interpret query results into understandable insights and use tools like Tableau or Power BI for data visualization. 
 
@@ -42,9 +42,10 @@ Lessons learned:
 - More research on formatting and conventions for consistency
 - Subqueries are basically just querying on a generated table from a query
 - I need more practice with window functions as I couldn't produce the results I wanted without creating multiple queries
-- Differences in SQL databased such as function availability 
+- Differences in SQL databases such as function availability, function names, and small nuances in syntax
+- Like coding there's many ways to query data that will output the same results
 
-Next steps: practice more complex syntax like windows functions (LAG, LEAD, RANK).
+Next steps: practice more complex syntax like time based analysis or windows functions (LAG, LEAD, RANK).
 Add more questions and visualizations
 - What is the percentage growth in revenue month-over-month or year-over-year?
 - Which artists show the greatest increase in popularity over time?

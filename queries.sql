@@ -79,7 +79,13 @@ ORDER BY total_sales DESC;
 -- Although spending seems to be relatively consistent throughout the year, sales generate the most revenue in Q2 and the least in Q4; with a 4% difference in revenue generated between the quarters. 
 
 -- Customer Insights:
--- 6. What can you tell me about our customers that are spending the most on [genre], [artist], etc.?
-
--- Time Based Analysis
--- 7. Advanced question(?) Find intermediate level query to dabble in. 
+-- 6. What can you tell me about our customers that are spending the most on their favorite artists?
+SELECT Customer.CustomerId, CONCAT(Customer.FirstName, ' ', Customer.LastName) AS full_name, Track.Composer, SUM(InvoiceLine.Quantity * Track.UnitPrice) AS spent_on_artist
+FROM Track
+    JOIN InvoiceLine ON InvoiceLine.TrackId = Track.TrackId
+    JOIN Invoice ON Invoice.InvoiceId = InvoiceLine.InvoiceId
+    JOIN Customer ON Customer.CustomerId = Invoice.CustomerId
+WHERE Track.Composer IS NOT NULL
+GROUP BY Customer.CustomerId, full_name, Track.Composer
+ORDER BY spent_on_artist DESC;
+-- Since we already have geographic insights we can get the names of customers that spend a lot on their favorite artists. This can allow us to personalize product reccomendations or run promotions for customer retention and loyalty. 
