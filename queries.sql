@@ -80,12 +80,17 @@ ORDER BY total_sales DESC;
 
 -- Customer Insights:
 -- 6. What can you tell me about our customers that are spending the most on their favorite artists?
-SELECT Customer.CustomerId, CONCAT(Customer.FirstName, ' ', Customer.LastName) AS full_name, Track.Composer, SUM(InvoiceLine.Quantity * Track.UnitPrice) AS spent_on_artist
+SELECT Customer.CustomerId,
+    CONCAT(Customer.FirstName, ' ', Customer.LastName) AS full_name,
+    Track.Composer,
+    SUM(InvoiceLine.Quantity * Track.UnitPrice) AS spent_on_artist
 FROM Track
     JOIN InvoiceLine ON InvoiceLine.TrackId = Track.TrackId
     JOIN Invoice ON Invoice.InvoiceId = InvoiceLine.InvoiceId
     JOIN Customer ON Customer.CustomerId = Invoice.CustomerId
 WHERE Track.Composer IS NOT NULL
-GROUP BY Customer.CustomerId, full_name, Track.Composer
+GROUP BY Customer.CustomerId,
+    full_name,
+    Track.Composer
 ORDER BY spent_on_artist DESC;
--- Since we already have geographic insights we can get the names of customers that spend a lot on their favorite artists. This can allow us to personalize product reccomendations or run promotions for customer retention and loyalty. 
+-- Since we already have geographic insights I gathered the names of customers that spend a lot on their favorite artists. This can allow us to personalize product reccomendations or run promotions for customer retention and loyalty. 
