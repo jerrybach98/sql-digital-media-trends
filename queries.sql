@@ -54,6 +54,8 @@ SELECT BillingCountry,
     BillingState,
     SUM(Total) AS state_revenue
 FROM Invoice
+WHERE BillingCountry = "USA"
+    OR BillingCountry = "Canada"
 GROUP BY BillingCountry,
     BillingState
 ORDER BY BillingCountry,
