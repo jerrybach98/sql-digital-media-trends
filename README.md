@@ -1,6 +1,6 @@
 # Digital Media Trends
 
-This project applies my SQL skills in a realistic setting using the Chinook dataset, a database simulating a digital media store. To emulate a real-world scenario, I am posing as an analyst responding to questions from a CEO. My goal is to create and interpret SQL query results, translate them into understandable insights, and visualize the data using Tableau.
+This project applies my SQL skills in a realistic setting using the Chinook dataset, a database simulating a digital media store. To emulate a real-world scenario, I am posing as an analyst responding to questions from a CEO. My goal is to create and interpret SQL query results, translate them into understandable insights for someone without technical expertise, and visualize the data using Tableau.
 
 ## Tech Stack
 - **Tools:** SQL
@@ -34,6 +34,5 @@ The CEO has asked the following questions:
 - Differences in SQL database management systems such as function availability/names and small syntax nuances, which require adaptation.
 - Similar to coding, there are many ways to query data to produce the same results.
 
-## Next Steps
-- Practice time-based analysis and advanced SQL syntax with window functions (LAG, LEAD, RANK, ETC).
-- Visualize those queries.
+## Further ehancements:
+- Practice time-based analysis and advanced SQL syntax with window functions (LAG, LEAD, RANK, ETC) then visualize those results.
