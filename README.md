@@ -6,6 +6,8 @@ This project applies my SQL skills in a realistic setting using the Chinook data
 - **Tools:** SQL
 - **Visualization:** Tableau
 
+## Queries
+Check out the SQL queries in the [queries.sql file](https://github.com/jerrybach98/sql-digital-media-trends/blob/main/queries.sql).
 
 ## Key Insights:
 The CEO has asked the following questions:
@@ -24,6 +26,9 @@ The CEO has asked the following questions:
 
 #### Customer Insights
 - What can you tell me about our customers that are spending the most on their favorite artists?
+
+## Visualizations:
+<img src="visualizations/revenue_and_sales.png" alt="revenue and sales visualization" width=auto height="400px"/><br>
 
 ## Lessons learned:
 - The end-to-end querying to visualization process mimics a real-world scenario, providing practical experience beyond online querying exercises.
