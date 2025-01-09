@@ -28,7 +28,7 @@ The CEO has asked the following questions:
 - What can you tell me about our customers that are spending the most on their favorite artists?
 
 ## Visualizations:
-<img src="visualizations/revenue_and_sales.png" alt="revenue and sales visualization" width=auto height="800px"/><br>
+<img src="visualizations/revenue_and_sales.png" alt="revenue and sales visualization" width=auto height="600px"/><br>
 
 ## Lessons learned:
 - The end-to-end querying to visualization process mimics a real-world scenario, providing practical experience beyond online querying exercises.
