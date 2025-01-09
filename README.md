@@ -38,6 +38,7 @@ The CEO has asked the following questions:
 - Window functions can elminate the need for creating multiple queries. 
 - Adaptation for differences in SQL database management systems such as function availability/names and small syntax nuances.
 - Similar to coding, there are many ways to query data to produce the same results.
+- Like CSS for websites, appealing Tableau visuals can use containers, color, layout, and hierarchy to engage and convey insights.
 
 ## Further ehancements:
 - Practice time-based analysis and advanced SQL syntax with window functions (LAG, LEAD, RANK, ETC) then visualize those results.
