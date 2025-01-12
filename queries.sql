@@ -82,7 +82,7 @@ ORDER BY total_sales DESC;
 
 -- Customer Insights:
 -- 6. What can you tell me about our customers that are spending the most on their favorite artists?
-SELECT Customer.CustomerId,
+SELECT DISTINCT Customer.CustomerId,
     CONCAT(Customer.FirstName, ' ', Customer.LastName) AS full_name,
     Track.Composer,
     SUM(InvoiceLine.Quantity * Track.UnitPrice) AS spent_on_artist
