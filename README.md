@@ -29,6 +29,7 @@ The CEO has asked the following questions:
 
 ## Visualizations:
 <img src="visualizations/revenue_and_sales.png" alt="revenue and sales visualization" width=auto height="600px"/><br>
+<img src="visualizations/music_customer_seasonal.png" alt="customer insights and seasonal trends visualization" width=auto height="600px"/><br>
 
 ## Lessons learned/Thoughts:
 - The end-to-end querying to visualization process mimics a real-world scenario, providing practical experience beyond online querying exercises.
