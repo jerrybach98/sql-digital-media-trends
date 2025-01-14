@@ -43,7 +43,7 @@ LIMIT 5;
 
 
 -- Geographic Insights
--- 4. Which cities or countries generate the most revenue? I want to run a promotion in popular areas. 
+-- 4. Which states or countries generate the most revenue? I want to run a promotion in popular areas. 
 SELECT BillingCountry,
     SUM(Total) AS country_revenue
 FROM Invoice
@@ -55,7 +55,16 @@ SELECT BillingCountry,
     SUM(Total) AS state_revenue
 FROM Invoice
 WHERE BillingCountry = "USA"
-    OR BillingCountry = "Canada"
+GROUP BY BillingCountry,
+    BillingState
+ORDER BY BillingCountry,
+    state_revenue DESC;
+
+    SELECT BillingCountry,
+    BillingState,
+    SUM(Total) AS state_revenue
+FROM Invoice
+WHERE BillingCountry = "Canada"
 GROUP BY BillingCountry,
     BillingState
 ORDER BY BillingCountry,
@@ -81,8 +90,8 @@ ORDER BY total_sales DESC;
 -- Although spending seems to be relatively consistent throughout the year, sales generate the most revenue in Q2 and the least in Q4; with a 4% difference in revenue generated between the quarters. 
 
 -- Customer Insights:
--- 6. What can you tell me about our customers that are spending the most on their favorite artists?
-SELECT DISTINCT Customer.CustomerId,
+-- 6. What can you tell me about our top spending customers?
+SELECT Customer.CustomerId,
     CONCAT(Customer.FirstName, ' ', Customer.LastName) AS full_name,
     Track.Composer,
     SUM(InvoiceLine.Quantity * Track.UnitPrice) AS spent_on_artist
@@ -95,4 +104,4 @@ GROUP BY Customer.CustomerId,
     full_name,
     Track.Composer
 ORDER BY spent_on_artist DESC;
--- Since we already have geographic insights I gathered the names of customers that spend a lot on their favorite artists. This can allow us to personalize product reccomendations or run promotions for customer retention and loyalty. 
+-- Since we already have geographic insights I gathered the names of our top spending customers and which artists they spent money on. This can allow us to personalize product reccomendations or run promotions for customer retention and loyalty. 
