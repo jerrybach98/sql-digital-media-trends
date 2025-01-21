@@ -7,7 +7,7 @@ This project applies my SQL skills in a realistic setting using the Chinook data
 - **Visualization:** Tableau
 
 ## Queries
-Check out the SQL queries in the [queries.sql file](https://github.com/jerrybach98/sql-digital-media-trends/blob/main/queries.sql).
+Check out the SQL queries in the [queries.sql file](https://github.com/jerrybach98/sql-digital-media-trends/blob/main/queries.sql). This file also includes comprehensible answers to the CEO’s questions as comments. 
 
 ## Key Insights:
 The CEO has asked the following questions:
