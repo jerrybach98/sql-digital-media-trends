@@ -48,28 +48,21 @@ SELECT BillingCountry,
     SUM(Total) AS country_revenue
 FROM Invoice
 GROUP BY BillingCountry
-ORDER BY country_revenue DESC;
+ORDER BY country_revenue DESC;1
 
 SELECT BillingCountry,
     BillingState,
     SUM(Total) AS state_revenue
 FROM Invoice
 WHERE BillingCountry = "USA"
+    OR BillingCountry = "Canada"
 GROUP BY BillingCountry,
     BillingState
 ORDER BY BillingCountry,
     state_revenue DESC;
 
-    SELECT BillingCountry,
-    BillingState,
-    SUM(Total) AS state_revenue
-FROM Invoice
-WHERE BillingCountry = "Canada"
-GROUP BY BillingCountry,
-    BillingState
-ORDER BY BillingCountry,
-    state_revenue DESC;
--- The countries that generate the most revenue are: USA, Canada, France, Brazil, and Germany. Although, not every country categorizes regions by states. In our top two countries, CA/TX/UT generate the most revenue in the USA, while ON/QC/BC generate the most revenue in Canada. These would be good states to run promotions in. 
+    
+-- The countries that generate the most revenue are: USA, Canada, France, Brazil, and Germany. In our top two countries, CA/TX/UT generate the most revenue in the USA, while ON/QC/BC generate the most revenue in Canada. These would be good states or provinces to run promotions in. 
 
 
 
