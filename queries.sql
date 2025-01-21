@@ -17,7 +17,7 @@ GROUP BY Track.Name,
     Track.TrackId
 ORDER BY revenue DESC
 LIMIT 10;
--- The top selling tracks by revenue are: Hot Girl, Walkabout, Gay Witch Hunt, How to Stop an Exploding Man, Pilot, Phyllis's Wedding, The Fix, The Woman King, I Do, and The Glass Ballerina. The data is based off of revenue generated but we can also see the quantity of tracks sold. 
+-- The top-selling tracks by revenue are: Hot Girl, Walkabout, Gay Witch Hunt, How to Stop an Exploding Man, Pilot, Phyllis's Wedding, The Fix, The Woman King, I Do, and The Glass Ballerina. This ranking is based on revenue generated, though we also have the option to analyze by the quantity of tracks sold for further insights.
 SELECT Album.Title AS album_title,
     SUM(InvoiceLine.Quantity * InvoiceLine.UnitPrice) AS album_revenue
 FROM Track
@@ -26,7 +26,7 @@ FROM Track
 GROUP BY Album.Title
 ORDER BY album_revenue DESC
 LIMIT 10;
--- The top selling albums by revenue are: Battlestar Galactica (Classic), Season 1, Minha Historia, The Office, Season 3, Heroes, Season 1, Lost, Season 2, Greatest Hits, Unplugged, Battlestar Galactica, Season 3, Lost, Season 3, Acústico. Since albums are not sold individually, the revenue is calculated from tracks sold within their respective albums. 
+-- The top-selling albums by revenue are: Battlestar Galactica (Classic), Season 1, Minha Historia, The Office, Season 3, Heroes, Season 1, Lost, Season 2, Greatest Hits, Unplugged, Battlestar Galactica, Season 3, Lost, Season 3, and Acústico. Since albums are not sold as a single product, the revenue figures reflect the sales of individual tracks within each respective album.
 
 
 -- Music and Artist Insights
@@ -39,7 +39,7 @@ FROM Track
 GROUP BY Genre.Name
 ORDER BY tracks_sold DESC
 LIMIT 5;
--- Out of 25 genres, our most popular five are Rock, Latin, Metal, Alternative & Punk, and Jazz. These are based on tracks sold to measure popularity and not revenue generated. 
+-- Among the 25 genres, the five most popular based on track sales are Rock, Latin, Metal, Alternative & Punk, and Jazz. This ranking reflects track sales as a measure of popularity rather than revenue generated.
 
 
 -- Geographic Insights
@@ -60,10 +60,7 @@ GROUP BY BillingCountry,
     BillingState
 ORDER BY BillingCountry,
     state_revenue DESC;
-
-    
--- The countries that generate the most revenue are: USA, Canada, France, Brazil, and Germany. In our top two countries, CA/TX/UT generate the most revenue in the USA, while ON/QC/BC generate the most revenue in Canada. These would be good states or provinces to run promotions in. 
-
+-- The countries generating the most revenue are the USA, Canada, France, Brazil, and Germany. Within our top two countries, the states driving the highest revenue in the USA are California, Texas, and Utah, while the provinces leading in Canada are Ontario, Quebec, and British Columbia. These regions would be strategic targets for promotional campaigns.
 
 
 -- Transaction and Seasonal Trends
@@ -80,7 +77,8 @@ SELECT (
 FROM Invoice
 GROUP BY quarter
 ORDER BY total_sales DESC;
--- Although spending seems to be relatively consistent throughout the year, sales generate the most revenue in Q2 and the least in Q4; with a 4% difference in revenue generated between the quarters. 
+-- The data indicates that while spending remains relatively steady throughout the year, sales revenue peaks in Q2 and reaches its lowest point in Q4, with a 4% variance in revenue between the two quarters.
+
 
 -- Customer Insights:
 -- 6. What can you tell me about our top spending customers?
@@ -97,4 +95,4 @@ GROUP BY Customer.CustomerId,
     full_name,
     Track.Composer
 ORDER BY spent_on_artist DESC;
--- Since we already have geographic insights I gathered the names of our top spending customers and which artists they spent money on. This can allow us to personalize product reccomendations or run promotions for customer retention and loyalty. 
+-- Given that we already have geographic insights, I have compiled a list of our top spending customers along with the artists they’ve supported. This information can be leveraged to personalize product recommendations and design targeted promotions, enhancing customer retention and loyalty.
